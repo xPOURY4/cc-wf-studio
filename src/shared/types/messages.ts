@@ -76,6 +76,10 @@ export interface StateUpdatePayload {
   selectedNodeId?: string | null;
 }
 
+export interface LoadWorkflowRequestPayload {
+  workflowId: string;
+}
+
 // ============================================================================
 // Extension → Webview Messages
 // ============================================================================
@@ -96,6 +100,7 @@ export type WebviewMessage =
   | Message<ExportWorkflowPayload, 'EXPORT_WORKFLOW'>
   | Message<ConfirmOverwritePayload, 'CONFIRM_OVERWRITE'>
   | Message<void, 'LOAD_WORKFLOW_LIST'>
+  | Message<LoadWorkflowRequestPayload, 'LOAD_WORKFLOW'>
   | Message<StateUpdatePayload, 'STATE_UPDATE'>;
 
 // ============================================================================

@@ -5,12 +5,25 @@
  * Based on: /specs/001-cc-wf-studio/plan.md
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { NodePalette } from './components/NodePalette';
 import { WorkflowEditor } from './components/WorkflowEditor';
 import { PropertyPanel } from './components/PropertyPanel';
+import { Toolbar } from './components/Toolbar';
+import { ErrorNotification } from './components/ErrorNotification';
+import type { ErrorPayload } from '@shared/types/messages';
 
 const App: React.FC = () => {
+  const [error, setError] = useState<ErrorPayload | null>(null);
+
+  const handleError = (errorData: ErrorPayload) => {
+    setError(errorData);
+  };
+
+  const handleDismissError = () => {
+    setError(null);
+  };
+
   return (
     <div
       className="app"
@@ -18,20 +31,36 @@ const App: React.FC = () => {
         width: '100vw',
         height: '100vh',
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         overflow: 'hidden',
       }}
     >
-      {/* Left Panel: Node Palette */}
-      <NodePalette />
+      {/* Top: Toolbar */}
+      <Toolbar onError={handleError} />
 
-      {/* Center: Workflow Editor */}
-      <div style={{ flex: 1, position: 'relative' }}>
-        <WorkflowEditor />
+      {/* Main Content: 3-column layout */}
+      <div
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'row',
+          overflow: 'hidden',
+        }}
+      >
+        {/* Left Panel: Node Palette */}
+        <NodePalette />
+
+        {/* Center: Workflow Editor */}
+        <div style={{ flex: 1, position: 'relative' }}>
+          <WorkflowEditor />
+        </div>
+
+        {/* Right Panel: Property Panel */}
+        <PropertyPanel />
       </div>
 
-      {/* Right Panel: Property Panel */}
-      <PropertyPanel />
+      {/* Error Notification Overlay */}
+      <ErrorNotification error={error} onDismiss={handleDismissError} />
     </div>
   );
 };

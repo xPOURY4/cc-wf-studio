@@ -104,6 +104,46 @@ export function exportWorkflow(
 }
 
 /**
+ * Request workflow list from the extension
+ *
+ * @returns Promise that resolves when workflow list is received
+ */
+export function loadWorkflowList(): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const requestId = `req-${Date.now()}-${Math.random()}`;
+
+    // Register response handler
+    const handler = (event: MessageEvent) => {
+      const message: ExtensionMessage = event.data;
+
+      if (message.requestId === requestId) {
+        window.removeEventListener('message', handler);
+
+        if (message.type === 'WORKFLOW_LIST_LOADED') {
+          resolve();
+        } else if (message.type === 'ERROR') {
+          reject(new Error(message.payload?.message || 'Failed to load workflow list'));
+        }
+      }
+    };
+
+    window.addEventListener('message', handler);
+
+    // Send request
+    vscode.postMessage({
+      type: 'LOAD_WORKFLOW_LIST',
+      requestId,
+    });
+
+    // Timeout after 10 seconds
+    setTimeout(() => {
+      window.removeEventListener('message', handler);
+      reject(new Error('Request timed out'));
+    }, 10000);
+  });
+}
+
+/**
  * Send a state update to the extension (for persistence)
  *
  * @param nodes - Current nodes

@@ -7,6 +7,9 @@
 
 import * as vscode from 'vscode';
 import { getWebviewContent } from '../webview-content';
+import { FileService } from '../services/file-service';
+import { loadWorkflowList } from './load-workflow-list';
+import { loadWorkflow } from './load-workflow';
 import type { WebviewMessage } from '../../shared/types/messages';
 
 /**
@@ -16,10 +19,20 @@ import type { WebviewMessage } from '../../shared/types/messages';
  */
 export function registerOpenEditorCommand(context: vscode.ExtensionContext): vscode.WebviewPanel | null {
   let currentPanel: vscode.WebviewPanel | undefined;
+  let fileService: FileService;
 
   const openEditorCommand = vscode.commands.registerCommand(
     'cc-wf-studio.openEditor',
     () => {
+      // Initialize file service
+      try {
+        fileService = new FileService();
+      } catch (error) {
+        vscode.window.showErrorMessage(
+          `Failed to initialize File Service: ${error instanceof Error ? error.message : 'Unknown error'}`
+        );
+        return;
+      }
       const columnToShowIn = vscode.window.activeTextEditor
         ? vscode.window.activeTextEditor.viewColumn
         : undefined;
@@ -66,8 +79,29 @@ export function registerOpenEditorCommand(context: vscode.ExtensionContext): vsc
               break;
 
             case 'LOAD_WORKFLOW_LIST':
-              // TODO: Will be implemented later in Phase 3
-              console.log('LOAD_WORKFLOW_LIST');
+              // Load workflow list
+              await loadWorkflowList(fileService, currentPanel!.webview, message.requestId);
+              break;
+
+            case 'LOAD_WORKFLOW':
+              // Load specific workflow
+              if (message.payload?.workflowId) {
+                await loadWorkflow(
+                  fileService,
+                  currentPanel!.webview,
+                  message.payload.workflowId,
+                  message.requestId
+                );
+              } else {
+                currentPanel!.webview.postMessage({
+                  type: 'ERROR',
+                  requestId: message.requestId,
+                  payload: {
+                    code: 'VALIDATION_ERROR',
+                    message: 'Workflow ID is required',
+                  },
+                });
+              }
               break;
 
             case 'STATE_UPDATE':
