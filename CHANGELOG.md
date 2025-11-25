@@ -1,3 +1,10 @@
+## [2.13.2](https://github.com/breaking-brake/cc-wf-studio/compare/v2.13.1...v2.13.2) (2025-11-25)
+
+### Bug Fixes
+
+* improve error message when no workspace is open ([#153](https://github.com/breaking-brake/cc-wf-studio/issues/153)) ([08d8278](https://github.com/breaking-brake/cc-wf-studio/commit/08d82785e3c186e9b70d2033c2c8abe29bdb2b29))
+* improve node palette description text visibility ([#154](https://github.com/breaking-brake/cc-wf-studio/issues/154)) ([a17728b](https://github.com/breaking-brake/cc-wf-studio/commit/a17728b67e929c7858aa8fd710e928c9ff79d8e7))
+
 ## [2.13.1](https://github.com/breaking-brake/cc-wf-studio/compare/v2.13.0...v2.13.1) (2025-11-25)
 
 ### Bug Fixes
