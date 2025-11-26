@@ -1,3 +1,9 @@
+## [2.14.0](https://github.com/breaking-brake/cc-wf-studio/compare/v2.13.3...v2.14.0) (2025-11-26)
+
+### Features
+
+* add multi-editor import support for Slack workflow sharing ([#158](https://github.com/breaking-brake/cc-wf-studio/issues/158)) ([00faefa](https://github.com/breaking-brake/cc-wf-studio/commit/00faefa3e44a28feced2e0cd0e0f17492039c43b))
+
 ## [2.13.3](https://github.com/breaking-brake/cc-wf-studio/compare/v2.13.2...v2.13.3) (2025-11-26)
 
 ### Bug Fixes
