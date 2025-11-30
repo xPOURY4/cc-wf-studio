@@ -1,3 +1,9 @@
+## [2.17.1](https://github.com/breaking-brake/cc-wf-studio/compare/v2.17.0...v2.17.1) (2025-11-30)
+
+### Bug Fixes
+
+* add i18n support for Slack error messages ([#183](https://github.com/breaking-brake/cc-wf-studio/issues/183)) ([11b8e3d](https://github.com/breaking-brake/cc-wf-studio/commit/11b8e3dfb5037b6ee534cc9361a006ccacf9ef7d))
+
 ## [2.17.0](https://github.com/breaking-brake/cc-wf-studio/compare/v2.16.1...v2.17.0) (2025-11-30)
 
 ### Features
