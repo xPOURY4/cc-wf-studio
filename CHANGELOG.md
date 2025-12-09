@@ -1,3 +1,9 @@
+## [3.5.0](https://github.com/breaking-brake/cc-wf-studio/compare/v3.4.1...v3.5.0) (2025-12-09)
+
+### Features
+
+* add AI editing functionality to SubAgentFlow dialog ([#242](https://github.com/breaking-brake/cc-wf-studio/issues/242)) ([16bf7d5](https://github.com/breaking-brake/cc-wf-studio/commit/16bf7d51f32c8c1ee83038bb6bcde5a3d6469299))
+
 ## [3.4.1](https://github.com/breaking-brake/cc-wf-studio/compare/v3.4.0...v3.4.1) (2025-12-08)
 
 ### Bug Fixes
