@@ -1,3 +1,10 @@
+## [3.7.1](https://github.com/breaking-brake/cc-wf-studio/compare/v3.7.0...v3.7.1) (2025-12-14)
+
+### Improvements
+
+* add Toggle component and enhance CodebaseSettingsDialog UX ([#270](https://github.com/breaking-brake/cc-wf-studio/issues/270)) ([da9dcc4](https://github.com/breaking-brake/cc-wf-studio/commit/da9dcc493b0732c4f9858827b45af86ef78906a6))
+* remove excessive emojis from CodebaseSettingsDialog ([#268](https://github.com/breaking-brake/cc-wf-studio/issues/268)) ([69b3a32](https://github.com/breaking-brake/cc-wf-studio/commit/69b3a32544aa0b919513a3229568ceca211924b1))
+
 ## [3.7.0](https://github.com/breaking-brake/cc-wf-studio/compare/v3.6.1...v3.7.0) (2025-12-13)
 
 ### Features
