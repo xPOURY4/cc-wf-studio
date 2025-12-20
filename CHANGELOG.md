@@ -1,3 +1,11 @@
+## [3.8.4](https://github.com/breaking-brake/cc-wf-studio/compare/v3.8.3...v3.8.4) (2025-12-20)
+
+### Improvements
+
+* add tool execution loading animation in AI chat ([#298](https://github.com/breaking-brake/cc-wf-studio/issues/298)) ([5615efe](https://github.com/breaking-brake/cc-wf-studio/commit/5615efe1de5c490924bf03ad26972231f28a6da8))
+* AI editing chat enhancements with allowed tools UI and strict tool restrictions ([#299](https://github.com/breaking-brake/cc-wf-studio/issues/299)) ([d72f241](https://github.com/breaking-brake/cc-wf-studio/commit/d72f2411a44b6f03c425f1b7830376765657860d))
+* implement TOON format for AI prompts to reduce token consumption ([#297](https://github.com/breaking-brake/cc-wf-studio/issues/297)) ([64fe228](https://github.com/breaking-brake/cc-wf-studio/commit/64fe228ba5e03c6c55731bb1038f8b54da8129af))
+
 ## [3.8.3](https://github.com/breaking-brake/cc-wf-studio/compare/v3.8.2...v3.8.3) (2025-12-19)
 
 ### Bug Fixes
