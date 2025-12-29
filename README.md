@@ -1,7 +1,10 @@
 # Claude Code Workflow Studio
 
 <p align="center">
+  <a href="https://github.com/breaking-brake/cc-wf-studio/stargazers"><img src="https://img.shields.io/github/stars/breaking-brake/cc-wf-studio" alt="GitHub Stars" /></a>
   <a href="https://snyk.io/test/github/breaking-brake/cc-wf-studio"><img src="https://snyk.io/test/github/breaking-brake/cc-wf-studio/badge.svg" alt="Known Vulnerabilities" /></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=breaking-brake.cc-wf-studio"><img src="https://img.shields.io/visual-studio-marketplace/v/breaking-brake.cc-wf-studio?label=VS%20Marketplace" alt="VS Code Marketplace" /></a>
+  <a href="https://open-vsx.org/extension/breaking-brake/cc-wf-studio"><img src="https://img.shields.io/open-vsx/v/breaking-brake/cc-wf-studio?label=OpenVSX" alt="OpenVSX" /></a>
 </p>
 
 <p align="center">
@@ -21,35 +24,24 @@
 
 ---
 
-<!-- AI Refinement Demo GIF 1: Initial Creation -->
+<!-- AI Edit Demo GIF: PR Code Review Workflow -->
 <p align="center">
-  <img src="./resources/ai-refinement-demo-1.gif" alt="AI-Assisted Workflow Refinement Demo - Initial Creation" width="800">
+  <img src="./resources/demo_edit_with_ai.gif" alt="AI-Assisted Workflow Creation Demo - PR Code Review" width="800">
 </p>
 
 <p align="center">
-  <em>✨ AI Refinement (1): "Create a workflow that sends a greeting prompt" – Build workflows from scratch with AI</em>
-</p>
-
----
-
-<!-- AI Refinement Demo GIF 2: Iterative Refinement -->
-<p align="center">
-  <img src="./resources/ai-refinement-demo-2.gif" alt="AI-Assisted Workflow Refinement Demo - Iterative Refinement" width="800">
-</p>
-
-<p align="center">
-  <em>✨ AI Refinement (2): "Can you modify it to change the greeting based on the current time?" – Refine iteratively through conversation</em>
+  <em>✨ Edit with AI: Create a PR code review workflow with MCP, Skills, and conditional branching – All with natural language</em>
 </p>
 
 ---
 
-<!-- Export Demo GIF -->
+<!-- Run Workflow Demo GIF -->
 <p align="center">
-  <img src="./resources/export-demo.gif" alt="One-Click Export to Slash Commands Demo" width="800">
+  <img src="./resources/demo_run_workflow.gif" alt="Run Workflow Demo - Execute workflows directly from the editor" width="800">
 </p>
 
 <p align="center">
-  <em>📤 One click to transform visual workflows into ready-to-use slash commands</em>
+  <em>▶️ Run workflows directly from the editor – See your AI automation in action instantly</em>
 </p>
 
 ---
@@ -165,14 +157,14 @@ claude --version
 
 ### Example Refinement Requests
 
-**Pattern 1: Initial Creation** (See Demo GIF #1 above)
+**Pattern 1: Initial Creation** (See Demo GIF above)
 ```
-Create a workflow that sends a greeting prompt
+e.g. Create a PR code review workflow with MCP, Skills, and conditional branching
 ```
 
-**Pattern 2: Iterative Refinement** (See Demo GIF #2 above)
+**Pattern 2: Iterative Refinement**
 ```
-Can you modify it to change the greeting based on the current time?
+e.g. Add error handling when the MCP tool fails to fetch PR details
 ```
 
 **Adding Validation Logic**
@@ -475,6 +467,10 @@ See the [LICENSE](./LICENSE) file for the full license text.
 - Commercial use is allowed, but proprietary modifications are not
 
 Copyright (c) 2025 breaking-brake
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=breaking-brake/cc-wf-studio&type=Date)](https://star-history.com/#breaking-brake/cc-wf-studio&Date)
 
 ## Acknowledgments
 
