@@ -1,3 +1,9 @@
+## [3.14.2](https://github.com/breaking-brake/cc-wf-studio/compare/v3.14.1...v3.14.2) (2026-01-12)
+
+### Improvements
+
+* add allowed-tools configuration UI for Slash Command export ([#431](https://github.com/breaking-brake/cc-wf-studio/issues/431)) ([0add0c3](https://github.com/breaking-brake/cc-wf-studio/commit/0add0c3f4924a4e6acac306aa2b35d94851300c1))
+
 ## [3.14.1](https://github.com/breaking-brake/cc-wf-studio/compare/v3.14.0...v3.14.1) (2026-01-11)
 
 ### Improvements
