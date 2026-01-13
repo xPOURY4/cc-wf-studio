@@ -1,3 +1,9 @@
+## [3.14.4](https://github.com/breaking-brake/cc-wf-studio/compare/v3.14.3...v3.14.4) (2026-01-13)
+
+### Improvements
+
+* stabilize AI editing flow with explicit process diagram ([#446](https://github.com/breaking-brake/cc-wf-studio/issues/446)) ([633aec9](https://github.com/breaking-brake/cc-wf-studio/commit/633aec9de3512da17a7330fa84e09a116517cfe7))
+
 ## [3.14.3](https://github.com/breaking-brake/cc-wf-studio/compare/v3.14.2...v3.14.3) (2026-01-13)
 
 ### Bug Fixes
