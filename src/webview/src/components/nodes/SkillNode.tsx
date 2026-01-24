@@ -11,6 +11,7 @@ import type { SkillNodeData } from '@shared/types/workflow-definition';
 import React from 'react';
 import { Handle, type NodeProps, Position } from 'reactflow';
 import { useTranslation } from '../../i18n/i18n-context';
+import { AIProviderBadge, type AIProviderType } from '../common/AIProviderBadge';
 import { DeleteButton } from './DeleteButton';
 
 /**
@@ -135,26 +136,33 @@ export const SkillNodeComponent: React.FC<NodeProps<SkillNodeData>> = React.memo
           </div>
         )}
 
-        {/* Scope Badge */}
-        <div
-          style={{
-            fontSize: '10px',
-            color: 'var(--vscode-badge-foreground)',
-            backgroundColor:
-              data.scope === 'user'
-                ? 'var(--vscode-badge-background)'
-                : data.scope === 'local'
-                  ? 'var(--vscode-terminal-ansiBlue)'
-                  : 'var(--vscode-button-secondaryBackground)',
-            padding: '2px 6px',
-            borderRadius: '3px',
-            display: 'inline-block',
-            textTransform: 'uppercase',
-            fontWeight: 600,
-            letterSpacing: '0.3px',
-          }}
-        >
-          {data.scope}
+        {/* Scope and Source Badges */}
+        <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
+          {/* Scope Badge */}
+          <div
+            style={{
+              fontSize: '10px',
+              color: 'var(--vscode-badge-foreground)',
+              backgroundColor:
+                data.scope === 'user'
+                  ? 'var(--vscode-badge-background)'
+                  : data.scope === 'local'
+                    ? 'var(--vscode-terminal-ansiBlue)'
+                    : 'var(--vscode-button-secondaryBackground)',
+              padding: '2px 6px',
+              borderRadius: '3px',
+              display: 'inline-block',
+              textTransform: 'uppercase',
+              fontWeight: 600,
+              letterSpacing: '0.3px',
+            }}
+          >
+            {data.scope}
+          </div>
+          {/* Source Badge for project skills */}
+          {data.scope === 'project' && data.source && (
+            <AIProviderBadge provider={data.source as AIProviderType} size="small" />
+          )}
         </div>
 
         {/* Allowed Tools Badge (if specified) */}

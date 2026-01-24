@@ -18,6 +18,7 @@ import {
   validateClaudeFileFormat,
 } from '../services/export-service';
 import type { FileService } from '../services/file-service';
+import { hasGithubSkills, promptAndCopyGithubSkills } from '../services/github-skill-copy-service';
 import { validateAIGeneratedWorkflow } from '../utils/validate-workflow';
 
 /**
@@ -40,6 +41,30 @@ export async function handleExportWorkflow(
     if (!validationResult.valid) {
       const errorMessages = validationResult.errors.map((err) => err.message).join('\n');
       throw new Error(`Workflow validation failed:\n${errorMessages}`);
+    }
+
+    // Check if workflow uses skills from .github/skills/ (Issue #493 Part 2)
+    // For Claude Code execution, skills must be in .claude/skills/
+    if (hasGithubSkills(payload.workflow)) {
+      const copyResult = await promptAndCopyGithubSkills(payload.workflow);
+
+      if (!copyResult.success) {
+        if (copyResult.cancelled) {
+          webview.postMessage({
+            type: 'EXPORT_CANCELLED',
+            requestId,
+          });
+          return;
+        }
+        throw new Error(copyResult.error || 'Failed to copy skills from .github/skills/');
+      }
+
+      // Log copied skills
+      if (copyResult.copiedSkills && copyResult.copiedSkills.length > 0) {
+        console.log(
+          `[Export] Copied ${copyResult.copiedSkills.length} skill(s) from .github/skills/ to .claude/skills/`
+        );
+      }
     }
 
     // Check if files already exist (unless overwrite is confirmed)
@@ -140,6 +165,9 @@ export interface ExportForExecutionResult {
  * the "Execute as Slash Command" feature. Unlike handleExportWorkflow,
  * it does not show UI notifications and returns the result directly.
  *
+ * If the workflow uses skills from .github/skills/, prompts the user
+ * to copy them to .claude/skills/ first (Issue #493 Part 2).
+ *
  * @param workflow - Workflow to export
  * @param fileService - File service instance
  * @returns Export result with success status and exported files
@@ -157,6 +185,32 @@ export async function handleExportWorkflowForExecution(
         success: false,
         error: `Workflow validation failed:\n${errorMessages}`,
       };
+    }
+
+    // Check if workflow uses skills from .github/skills/ (Issue #493 Part 2)
+    // For Claude Code execution, skills must be in .claude/skills/
+    if (hasGithubSkills(workflow)) {
+      const copyResult = await promptAndCopyGithubSkills(workflow);
+
+      if (!copyResult.success) {
+        if (copyResult.cancelled) {
+          return {
+            success: false,
+            cancelled: true,
+          };
+        }
+        return {
+          success: false,
+          error: copyResult.error || 'Failed to copy skills from .github/skills/',
+        };
+      }
+
+      // Log copied skills
+      if (copyResult.copiedSkills && copyResult.copiedSkills.length > 0) {
+        console.log(
+          `[Export] Copied ${copyResult.copiedSkills.length} skill(s) from .github/skills/ to .claude/skills/`
+        );
+      }
     }
 
     // Check if files already exist

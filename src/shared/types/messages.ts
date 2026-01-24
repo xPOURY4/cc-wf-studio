@@ -182,6 +182,13 @@ export interface SkillReference {
   validationStatus: 'valid' | 'missing' | 'invalid';
   /** Optional: Allowed tools (from YAML frontmatter) */
   allowedTools?: string;
+  /**
+   * Source directory for project-scope skills
+   * - 'claude': from .claude/skills/ (Claude Code skills)
+   * - 'copilot': from .github/skills/ (Copilot skills)
+   * - undefined: for user/local scope or legacy data
+   */
+  source?: 'claude' | 'copilot';
 }
 
 export interface CreateSkillPayload {

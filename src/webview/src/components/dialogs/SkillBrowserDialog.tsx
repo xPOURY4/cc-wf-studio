@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from '../../i18n/i18n-context';
 import { browseSkills, createSkill } from '../../services/skill-browser-service';
 import { useWorkflowStore } from '../../stores/workflow-store';
+import { AIProviderBadge, type AIProviderType } from '../common/AIProviderBadge';
 import { type CreateSkillFormData, SkillCreationDialog } from './SkillCreationDialog';
 
 interface SkillBrowserDialogProps {
@@ -158,6 +159,7 @@ export function SkillBrowserDialog({ isOpen, onClose }: SkillBrowserDialogProps)
         validationStatus: selectedSkill.validationStatus,
         allowedTools: selectedSkill.allowedTools,
         outputPorts: 1,
+        source: selectedSkill.source,
       },
     });
 
@@ -530,6 +532,10 @@ export function SkillBrowserDialog({ isOpen, onClose }: SkillBrowserDialogProps)
                               ? t('skill.browser.localTab')
                               : t('skill.browser.projectTab')}
                         </span>
+                        {/* Source badge for project skills */}
+                        {skill.scope === 'project' && skill.source && (
+                          <AIProviderBadge provider={skill.source as AIProviderType} size="small" />
+                        )}
                       </div>
                       <span
                         style={{
