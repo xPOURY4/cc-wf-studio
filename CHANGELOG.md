@@ -1,3 +1,15 @@
+## [3.20.0](https://github.com/breaking-brake/cc-wf-studio/compare/v3.19.2...v3.20.0) (2026-02-07)
+
+### Features
+
+* add Roo Code skills integration (export & run) ([#543](https://github.com/breaking-brake/cc-wf-studio/issues/543)) ([913eba0](https://github.com/breaking-brake/cc-wf-studio/commit/913eba0746d55daaa34f07f9ef338736a09bc94a))
+
+### Improvements
+
+* add persistent memory setting to SubAgent and SubAgentFlow nodes ([#541](https://github.com/breaking-brake/cc-wf-studio/issues/541)) ([b48acd7](https://github.com/breaking-brake/cc-wf-studio/commit/b48acd7eef701da7d843a48fe97d8bcda0b83919))
+* add Roo Code skills detection and documentation ([#545](https://github.com/breaking-brake/cc-wf-studio/issues/545)) ([5db6252](https://github.com/breaking-brake/cc-wf-studio/commit/5db6252666653ed5c4b688c7ea9aedfb035363d9))
+* simplify Skill node description in exported MD files ([#547](https://github.com/breaking-brake/cc-wf-studio/issues/547)) ([3fc1f6c](https://github.com/breaking-brake/cc-wf-studio/commit/3fc1f6cad9da0dbf74fa9d2cde63c120899e91a1))
+
 ## [3.19.2](https://github.com/breaking-brake/cc-wf-studio/compare/v3.19.1...v3.19.2) (2026-02-06)
 
 ### Bug Fixes
