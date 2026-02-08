@@ -109,6 +109,26 @@
 ### Edit with AI
 
 - Click Edit with AI <img src="./resources/icon-sparkles.png" alt="sparkles" height="16" style="vertical-align: middle"> button in the toolbar to generate or refine workflows with natural language
+- **Native with MCP Server**: Click an AI agent button (Claude Code, Copilot, Codex, Roo Code) in the Edit with AI panel to launch native AI editing. The MCP server starts automatically behind the scenes.
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant VSCode as CC Workflow Studio
+    participant MCP as MCP Server
+    participant Agent as AI Agent
+
+    User->>VSCode: Click agent button
+    VSCode->>MCP: Auto start server
+    VSCode->>Agent: Launch with editing skill
+
+    loop AI edits workflow
+        Agent->>MCP: get_workflow
+        MCP-->>Agent: workflow JSON
+        Agent->>MCP: apply_workflow
+        MCP->>VSCode: Update canvas
+    end
+```
 
 ## Usage Examples
 
