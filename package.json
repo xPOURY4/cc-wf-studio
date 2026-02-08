@@ -2,7 +2,7 @@
   "name": "cc-wf-studio",
   "displayName": "CC Workflow Studio - for Claude Code, Copilot, Codex, Roo Code",
   "description": "Accelerate Claude Code, GitHub Copilot, Codex CLI, Roo Code automation with a visual workflow editor",
-  "version": "3.20.0",
+  "version": "3.21.0",
   "publisher": "breaking-brake",
   "icon": "resources/icon.png",
   "repository": {

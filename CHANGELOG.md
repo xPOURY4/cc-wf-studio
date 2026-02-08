@@ -1,3 +1,9 @@
+## [3.21.0](https://github.com/breaking-brake/cc-wf-studio/compare/v3.20.0...v3.21.0) (2026-02-08)
+
+### Features
+
+* add built-in MCP server for external AI agent integration ([#550](https://github.com/breaking-brake/cc-wf-studio/issues/550)) ([0e34d0a](https://github.com/breaking-brake/cc-wf-studio/commit/0e34d0a683811168ad9f83fb0dc5139b3c267666))
+
 ## [3.20.0](https://github.com/breaking-brake/cc-wf-studio/compare/v3.19.2...v3.20.0) (2026-02-07)
 
 ### Features
