@@ -1,3 +1,9 @@
+## [3.22.2](https://github.com/breaking-brake/cc-wf-studio/compare/v3.22.1...v3.22.2) (2026-02-18)
+
+### Improvements
+
+* add Roo Code MCP server detection for tool nodes ([#587](https://github.com/breaking-brake/cc-wf-studio/issues/587)) ([cca11fe](https://github.com/breaking-brake/cc-wf-studio/commit/cca11feb88b987868706968e1881384c69bce08b))
+
 ## [3.22.1](https://github.com/breaking-brake/cc-wf-studio/compare/v3.22.0...v3.22.1) (2026-02-18)
 
 ### Bug Fixes
