@@ -1,3 +1,9 @@
+## [3.25.0](https://github.com/breaking-brake/cc-wf-studio/compare/v3.24.1...v3.25.0) (2026-02-21)
+
+### Features
+
+* add Antigravity (Google VSCode fork) provider support ([#602](https://github.com/breaking-brake/cc-wf-studio/issues/602)) ([08c2100](https://github.com/breaking-brake/cc-wf-studio/commit/08c21001b06a8aec694ef5dd27e50ce8f12ce9a7))
+
 ## [3.24.1](https://github.com/breaking-brake/cc-wf-studio/compare/v3.24.0...v3.24.1) (2026-02-21)
 
 ### Improvements
